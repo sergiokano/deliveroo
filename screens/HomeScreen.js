@@ -67,7 +67,9 @@ const HomeScreen = () => {
         </View>
         <UserIcon size={30} color="#00CCBB" />
       </View>
+
       {/* Search */}
+
       <View className="flex-row items-center space-x-2 pb-2 mx-4 px-4">
         <View className="flex-row flex-1 space-x-2 bg-gray-200 p-3">
           <MagnifyingGlassIcon color="#00CCBB" size={20} />
@@ -78,7 +80,9 @@ const HomeScreen = () => {
         </View>
         <AdjustmentsVerticalIcon color="#00CCBB" />
       </View>
+
       {/* Body */}
+
       <ScrollView
         className="bg-gray-100"
         contentContainerStyle={{
@@ -88,24 +92,16 @@ const HomeScreen = () => {
         {/* Categories */}
         <Categories />
 
-        {/* FeaturedRows */}
-        <FeaturedRow
-          id="123"
-          title="Featured"
-          description="Paid placements from our partners"
-        />
-        {/* Tasty Discounts */}
-        <FeaturedRow
-          id="1234"
-          title="Tasty Discounts"
-          description="Everyone's been enjoying these juicy discounts!"
-        />
-        {/* Offers near you */}
-        <FeaturedRow
-          id="12345"
-          title="Offers Near You"
-          description="Why not support your local restaurant tonight?"
-        />
+        {/* Featured */}
+        {featuredCategories?.map((category) => (
+          <FeaturedRow
+            key={category._id}
+            id={category._id}
+            title={category.name}
+            description={category.short_description}
+          />
+        ))}
+
       </ScrollView>
     </SafeAreaView>
   );
