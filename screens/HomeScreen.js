@@ -33,20 +33,21 @@ const HomeScreen = () => {
     sanityClient
       .fetch(
         `
-          *[_type == "featured"]  {
+        *[_type == "featured"]  {
+          ...,
+          restaurants[]->{
             ...,
-            restaurants[]->{
-              ...
-              dishes[]->{
-              }
+            dishes[]->{
             }
+          }
+}
          `
       )
       .then((data) => {
         setFeaturedCategories(data);
       });
   }, []);
-
+  console.log(featuredCategories);
   return (
     <SafeAreaView className="bg-white pt-5">
       {/* Header */}
