@@ -35,7 +35,7 @@ const RestaurantCard = ({
           lat,
         });
       }}
-      className="bg-white mr-3 shadow"
+      className="bg-white mr-3 shadow w-64"
     >
       <Image
         source={{ uri: urlFor(imgUrl).url() }}
@@ -49,9 +49,15 @@ const RestaurantCard = ({
             <Text className="text-green-500">{rating}</Text> · {genre}
           </Text>
         </View>
-        <View className="flex-row items-center space-x-1 ">
+        <View className="flex-row items-center space-x-1 flex-shrink">
           <MapPinIcon color="gray" opacity={0.4} size={22} />
-          <Text className="text-xs text-gray-500">Nearby · {address}</Text>
+          <Text
+            className="text-xs text-gray-500"
+            numberOfLines={1}
+            ellipsizeMode="tail"
+          >
+            Nearby · {address}
+          </Text>
         </View>
       </View>
     </TouchableOpacity>
