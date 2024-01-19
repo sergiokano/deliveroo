@@ -108,6 +108,11 @@ const BasketScreen = () => {
               <Text>{basketTotal + 5.99} €</Text>
             </Text>
           </View>
+          <TouchableOpacity className="rounded-lg bg-[#00CCBB] p-4 ">
+            <Text className="text-center text-white font-bold text-lg">
+              Place Order
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
