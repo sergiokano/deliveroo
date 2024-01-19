@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import React, { useMemo, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { selectRestaurant } from "../features/restaurantSlice";
@@ -12,12 +12,19 @@ const BasketScreen = () => {
   const dispatch = useDispatch();
   const [groupedItemsInBasket, setGroundedItemsInBasket] = useState([]);
 
-  useMemo(() => {}, [items]);
+  useMemo(() => {
+    const groupedItems = items.reduce((results, item) => {
+      (results[item.id] = results[item.id] || []).push(item);
+      return results;
+    },
+    {});
+    setGroundedItemsInBasket( groupedItems);
+  }, [items]);
 
   return (
-    <View>
+    <SafeAreaView>
       <Text>BasketScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
