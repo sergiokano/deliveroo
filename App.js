@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React from "react";
-import { Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import RestaurantScreen from "./screens/RestaurantScreen";
@@ -20,7 +19,7 @@ export default function App() {
           <Stack.Screen
             name="Basket"
             component={BasketScreen}
-            options={{ presentation: "modal", headerShown: false }}
+            options={{ presentation: "modal", headerShown: false, animation: "slide_from_bottom" }}
           />
         </Stack.Navigator>
       </Provider>
